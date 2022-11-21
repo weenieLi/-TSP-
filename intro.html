@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pictures of BJUT</title>
+  <style>
+
+    body {
+      background-color:#d0e4fe;
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        background-color: lightgreen;
+      }
+    }
+
+
+    h1{
+      color:#9a2efe;
+      text-shadow: 5px 5px 5px #f6fb79;
+      text-align:center;
+      font-size: 30px;
+
+
+    }
+
+    h3
+    {
+      color: #000000;
+      text-align:right;
+      font-size:20pt;
+    }
+
+    div.img {
+      border: 1px solid #ccc;
+      width:350px;
+      height:250px;
+    }
+
+    div.img:hover {
+      border: 1px solid #777;
+    }
+
+    div.img img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .responsive {
+      padding: 0 6px;
+      float: left;
+      width: 24.99999%;
+    }
+
+    @media only screen and (max-width: 700px){
+      .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+      }
+    }
+
+    @media only screen and (max-width: 500px){
+      .responsive {
+        width: 100%;
+      }
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    #myImg {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #myImg:hover {opacity: 0.7;}
+
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    /* Caption of Modal Image */
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+
+    /* Add Animation */
+    .modal-content, #caption {
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.1)}
+      to {transform: scale(1)}
+    }
+
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+      .modal-content {
+        width: 100%;
+      }
+    }
+
+
+    #nav {
+      margin: -1px auto;
+      height: 40px;
+      background-color: #9b79fb;
+    }
+    #nav ul {
+      list-style: none;
+      margin-left: 50px;
+    }
+    #nav li {
+      display: inline;
+    }
+    #nav a {
+      line-height: 40px;
+      color: #fff;
+      text-decoration: none;
+      padding: 20px 20px;
+    }
+    #nav a:hover {
+      background-color: #f8fab3;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1> Have you ever realize how beautiful our campus is?</h1>
+
+<ul id="nav">
+  <li><a href="#home">Introduction</a></li>
+  <li><a href="#news">Pictures</a></li>
+  <li><a href="#contact">Map</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<br>
+<a href="Present.html" title="进入初始界面" target="top">back to the origin page(Click here)</a>
+<br>
+
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.KkDL2po3vCBBEYbzAIKCggHaE7?pid=ImgDet&rs=1" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">Spring</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="https://photo.tuchong.com/443729/f/7535394.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">Summer</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="img_lights.jpg">
+      <img src="https://ts1.cn.mm.bing.net/th/id/R-C.e11666fb5e8c678eb479789b539eb
+      7e6?rik=nY1PxI7tmai1og&riu=http%3a%2f%2fbbs.yanzhishi.cn%2fimage%2fshow%2farticles-2020-06-ibDnfhlM5eec9ab406735.jpg&ehk=0KjEQZyZr%2bHkfS0Cs4BzEZk8pGFXyfiNe9GMaOoebDs%3d&risl=&pid=ImgRaw&r=0" alt="Northern Lights" width="600" height="400">
+    </a>
+    <div class="desc">Autumn</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="img_fjords.jpg">
+      <img src="https://pic.baike.soso.com/p/20131115/20131115100111-1348157286.jpg" alt="Trolltunga Norway" width="300" height="200">
+    </a>
+    <div class="desc">Winter</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div style="padding:6px;">
+
+
+</div>
+
+<br>
+<br>
+<p>Click here to see boarder view of the picture of BJUT </p>
+
+<img id="myImg" src="https://ts1.cn.mm.bing.net/th/id/R-C.8fe0
+6e4caf92b9415fcadc07f12b6f60?rik=E4TFIAuaz9jpJw&riu=http%3a%2f
+%2fwww.bjut.edu.cn%2f__local%2f8%2fFE%2f06%2fE4CAF92B9415FCADC
+07F12B6F60_21E105C0_25B02.jpg%3fe%3d.jpg&ehk=22r%2bLvngdnxyLPr
+x1wMwyqgXe0jWJERBmgvtdwYFheY%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="The brief map of campus" width="300" height="200">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">×</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+  // 获取模态窗口
+  var modal = document.getElementById('myModal');
+
+  // 获取图片模态框，alt 属性作为图片弹出中文本描述
+  var img = document.getElementById('myImg');
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+  }
+
+  // 获取 <span> 元素，设置关闭模态框按钮
+  var span = document.getElementsByClassName("close")[0];
+
+  // 点击 <span> 元素上的 (x), 关闭模态框
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+</script>
+
+<table>
+  <tr>
+    <td colspan="2" style="background-color:#b2e5f4;text-align:center;">
+      CopyRight ©Teenie </td>
+  </tr>
+</table>
+
+
+<br>
+
+
+<br>
+</body>
+</html>

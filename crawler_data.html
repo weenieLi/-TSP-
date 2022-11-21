@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crawling data</title>
+    <style>
+
+        body{
+            background-color:#d0e4fe;
+        }
+
+        h1{
+            color:#9a2efe;
+            text-align:center;
+            font-size: 30px;
+            text-shadow: 5px 5px 5px #f6fb79;
+
+
+        }
+
+        h2{
+            color:#6dfe6d;
+            text-align:left;
+            font-size: 30px;
+        }
+
+
+        .leftbox {
+            width: 537px;
+            height: 600px;
+            background-color: #fad4f9;
+            float: left;
+        }
+
+        .leftbox dl{
+            color:#4e3596;
+            font-size: 20px;
+        }
+        .rightbox {
+            width: 850px;
+            height: 600px;
+            background-color: #f8c3f6;
+            float: right;
+        }
+
+        .rightbox img{
+            margin-top: 30px;
+            margin-left: 200px;
+        }
+
+        #nav {
+            margin: -1px auto;
+            height: 40px;
+            background-color: #9b79fb;
+        }
+        #nav ul {
+            list-style: none;
+            margin-left: 50px;
+        }
+        #nav li {
+            display: inline;
+        }
+        #nav a {
+            line-height: 40px;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px 20px;
+        }
+        #nav a:hover {
+            background-color: #f8fab3;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<h1> Wanna see the real data of campus! Here you go :)</h1>
+<br>
+
+<ul id="nav">
+    <li><a href="#home">Introduction</a></li>
+    <li><a href="#news">Pictures</a></li>
+    <li><a href="#contact">Map</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+
+<div class="container">
+    <div class="leftbox">
+        <!--left-->
+        <br>
+        <a href="Present.html" title="进入初始界面" target="top">back to the origin page(Click here)</a>
+
+        <br>
+        <h2><em>Steps of getting crawler data</em><br></h2>
+
+        <hr>
+        <dl>
+            <dt>Get API of Baidu</dt>
+            <dd>- register & login</dd>
+            <dd>- apply a key for api</dd>
+            <br>
+            <dt>using jupyter notebook to write the code</dt>
+            <dd>- create the function (def) using url to requests</dd>
+            <dd>- get the latitude and longitude of two different places</dd>
+            <dd>- using math of py, calculate the distance</dd>
+            <br>
+            <dt>Save the result to xlsx</dt>
+        </dl>
+
+
+        <img src="sponge.gif" alt="Sponge babe">
+        <br>
+        <a href="distance%20-%20Jupyter%20Notebook.pdf" target="_blank">See the detail of my code</a>
+
+    </div>
+
+
+
+    <div class="rightbox">
+        <!--right-->
+
+        <br>
+        <br>
+        <br>
+
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="result_cleaned.xlsx" target="_blank">See the result of distance with two places</a>
+        <img src="broad_view.png" alt="Broad" width="500" height="450">
+
+        <br>
+
+
+    </div>
+</div>
+
+<tr>
+    <td colspan="2" style="background-color:#b2e5f4;text-align:center;">
+        CopyRight ©Teenie </td>
+</tr>
+
+</body>
+</html>

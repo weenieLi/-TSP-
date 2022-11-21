@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Function Part of BJUT</title>
+
+</head>
+<!--- 美化页面 --->
+<style>
+
+    body{
+        background-color:#e6defe;
+    }
+
+    h1
+    {
+        color:#9a2efe;
+        text-shadow: 5px 5px 5px #f6fb79;
+        text-align: center;
+        font-size: 30px;
+    }
+
+
+    /*清除浏览器默认的页面边距*/
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    /*设置大背景*/
+    section {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        height: 740px;
+        background: linear-gradient(to bottom, lightpink, DarkViolet);
+    }
+    /*地图背景*/
+    map{
+        margin-top: 50px;
+        margin-left: 50px;
+        border-radius: 25px;
+        position: relative;
+        width: 700px;
+        height: 650px;
+        background: rgba(255, 255, 255, 0.1);
+        display: block;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+    }
+    /*按钮元件美化*/
+    map .inputBox {
+        justify-content: center;
+        align-items: center;
+    }
+    map .inputBox input[type="button"] {
+        position: absolute;
+        border-radius: 15px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid black;
+        outline: none;
+        /*font-size: 3px;*/
+        background: green;
+        z-index: 9999;
+    }
+    #a1{
+        left: 30px;
+        top:325px;
+        transform: translateY(-50%);
+    }
+    #a2{
+        left: 200px;
+        top:200px;
+        transform: translate(-50%,-50%);
+    }
+    #a3{
+        left: 200px;
+        top:450px;
+        transform: translate(-50%,-50%);
+    }
+    #a4{
+        left: 350px;
+        top:200px;
+        transform: translate(-50%,-50%);
+    }
+    #a5{
+        left: 275px;
+        top:325px;
+        transform: translate(-50%,-50%);
+    }
+    #a6{
+        left: 350px;
+        top:450px;
+        transform: translate(-50%,-50%);
+    }
+    #a7{
+        left: 425px;
+        top:325px;
+        transform: translate(-50%,-50%);
+    }
+    #a8{
+        left: 500px;
+        top:200px;
+        transform: translate(-50%,-50%);
+    }
+    #a9{
+        left: 500px;
+        top:450px;
+        transform: translate(-50%,-50%);
+    }
+    #a10{
+        left: 650px;
+        top:325px;
+        transform: translate(-50%,-50%);
+    }
+    label{
+        position: absolute;
+    }
+    #a11{
+        left: 30px;
+        top:325px;
+        transform: translate(-25%,50%);
+    }
+    #a22{
+        left: 200px;
+        top:200px;
+        transform: translate(-50%,-150%);
+    }
+    #a33{
+        left: 200px;
+        top:450px;
+        transform: translateY(50%);
+    }
+    #a44{
+        left: 350px;
+        top:200px;
+        transform: translate(-50%,-150%);
+    }
+    #a55{
+        left: 275px;
+        top:325px;
+        transform: translateX(15%);
+    }
+    #a66{
+        left: 350px;
+        top:450px;
+        transform: translateY(50%);
+    }
+    #a77{
+        left: 425px;
+        top:325px;
+        transform: translateX(15%);
+    }
+    #a88{
+        left: 500px;
+        top:200px;
+        transform: translate(-50%,-150%);
+    }
+    #a99{
+        left: 500px;
+        top:450px;
+        transform: translateY(50%);
+    }
+    #a1010{
+        left: 650px;
+        top:325px;
+        transform: translateY(50%);
+    }
+    canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    button1{
+        position: absolute;
+        border-radius: 10px;
+        background-size: 35px 35px;
+        width: 35px;
+        height: 35px;
+        border: none;
+        outline: none;
+        background-image: url("路线 (1).svg");
+        text-align: center;
+        line-height: 55px;
+        font-size: 20px;
+        top:600px;
+        left: 630px;
+    }
+    button1:hover{
+        background-image: url("路线 (2).svg");
+        background-color: cadetblue;
+    }
+    #exit{
+        left: 550px;
+        background-image: url("退出,出.svg");
+    }
+    #exit:hover{
+        background-color: mediumpurple;
+        background-image: url("退出,出 (2).svg");
+    }
+    #beginning{
+        left: 470px;
+        background-image: url("起点.svg");
+    }
+    #beginning:hover{
+        background-color: darksalmon;
+        background-image: url("起点 (2).svg");
+    }
+    /*介绍框*/
+    form{
+        margin-top: 50px;
+        margin-left: 70px;
+        border-radius: 25px;
+        position: relative;
+        width: 400px;
+        height: 650px;
+        background: rgba(255, 255, 255, 0.1);
+        display: block;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        z-index: 1;
+    }
+    /*时间框*/
+    time{
+        border-radius: 25px;
+        position: absolute;
+        width: 350px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.1);
+        display: block;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-right: 2px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        left: 25px;
+        top: 50px;
+    }
+    #show{
+        font-size: 20px;
+        line-height: 70px;
+        text-align: center;
+    }
+    p{
+        top:140px;
+        left:20px;
+        font-size: 30px;
+        position: absolute;
+        width: 350px;
+        height: 400px;
+        white-space: pre-line;
+    }
+    #introduction{
+        top:190px;
+        left:20px;
+        font-size: 25px;
+        position: absolute;
+        width: 350px;
+        height: 400px;
+        white-space: pre-line;
+    }
+    #introduction::-webkit-scrollbar{
+        width: 16px;
+        height: 16px;
+
+    }
+    #introduction::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+        background: linear-gradient(to bottom, lightcyan, lightskyblue);
+    }
+    #introduction::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background-color: rgba(255,255,255,0.4);
+
+    }
+    #b1{
+        position: absolute;
+        border-radius: 8px;
+        width: 35px;
+        height: 70px;
+        outline: none;
+        background: lemonchiffon;
+        border: lemonchiffon;
+        text-align: center;
+        line-height: 55px;
+        font-size: 10px;
+        color: lemonchiffon;
+        top:70px;
+        left: 1215px;
+        z-index: 0;
+    }
+    #b2{
+        position: absolute;
+        border-radius: 8px;
+        width: 35px;
+        height: 70px;
+        outline: none;
+        background: lightcoral;
+        border: lightcoral;
+        text-align: center;
+        line-height: 55px;
+        font-size: 10px;
+        color: lightcoral;
+        top:145px;
+        left: 1215px;
+        z-index: 0;
+    }
+    #b3{
+        position: absolute;
+        border-radius: 8px;
+        width: 35px;
+        height: 70px;
+        outline: none;
+        background: cornflowerblue;
+        border: cornflowerblue;
+        text-align: center;
+        line-height: 55px;
+        font-size: 10px;
+        color: cornflowerblue;
+        top:220px;
+        left: 1215px;
+        z-index: 0;
+    }
+    #b1:hover{
+        width: 80px;
+        color: rgba(0,0,0,0.8);
+        font-size: 15px;
+    }
+    #b2:hover{
+        width: 80px;
+        color: rgba(0,0,0,0.8);
+        font-size: 15px
+    }
+    #b3:hover{
+        width: 80px;
+        color: rgba(0,0,0,0.8);
+        font-size: 15px
+    }
+
+    #nav {
+        margin: -1px auto;
+        height: 40px;
+        background-color: #9b79fb;
+    }
+    #nav ul {
+        list-style: none;
+        margin-left: 50px;
+    }
+    #nav li {
+        display: inline;
+    }
+    #nav a {
+        line-height: 40px;
+        color: #fff;
+        text-decoration: none;
+        padding: 20px 20px;
+    }
+    #nav a:hover {
+        background-color: #f8fab3;
+    }
+
+
+
+</style>
+<body>
+<!--- 页面主体元素 --->
+<br>
+<h1> Needs a map to hang around? I may help!</h1>
+<br>
+
+
+<ul id="nav">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <li><a href="#home">&nbsp;Introduction</a></li>
+    <li><a href="#news">&nbsp;Pictures</a></li>
+    <li><a href="#contact">&nbsp;Map</a></li>
+    <li><a href="#about">&nbsp;About</a></li>
+</ul>
+
+
+
+<section>
+    <!--- 地图界面 --->
+    <map>
+        <div class="inputBox">
+            <input type="button" id="a1" onclick="getid1()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a2" onclick="getid2()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a3" onclick="getid3()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a4" onclick="getid4()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a5" onclick="getid5()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a6" onclick="getid6()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a7" onclick="getid7()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a8" onclick="getid8()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a9" onclick="getid9()">
+        </div>
+        <div class="inputBox">
+            <input type="button" id="a10" onclick="getid10()">
+        </div>
+        <label id="a11">1号宿舍楼</label>
+        <label id="a22">2号宿舍楼</label>
+        <label id="a33">3号宿舍楼</label>
+        <label id="a44">4号宿舍楼</label>
+        <label id="a55">第一教学楼</label>
+        <label id="a66">第二教学楼</label>
+        <label id="a77">第三教学楼</label>
+        <label id="a88">天天餐厅</label>
+        <label id="a99">奥运餐厅</label>
+        <label id="a1010">浴室</label>
+        <!--- 绘制地图路径 ---->
+        <canvas id="canvas"></canvas>
+        <button1 onclick="Result()"></button1>
+        <button1 onclick="clean_map()" id="exit"></button1>
+        <button1 onclick="add()" id="beginning"></button1>
+    </map>
+    <!--- 功能界面 --->
+    <form>
+        <!--- 时间框 --->
+        <time>
+            <div class="content1">
+                <div id="show">显示时间的位置</div>
+            </div>
+        </time>
+
+        <p>校园导航</p>
+        <p id="introduction" style="overflow-y: auto">1.单机地图上绿色的小圆点，使其变红即为选中的目的地
+            2.误选目标地址，只需再次点中就可以红色图标再次变绿
+            3.默认1号宿舍为选中的目的地为起点，如果需要改变起点则需要点击起点后将小旗插入对应的的点位即可变紫
+            4.点击访问，则可以看到一条绿色加粗的路径为目标路径，其中目标点为红色，经过但不为目标的点为橙色
+            5.点击退出，推出导航，页面恢复初始状态
+        </p>
+    </form>
+    <!--- 标签界面 --->
+    <div class="inputBox">
+        <input type="button" id="b1" value="Draw the graph yourself">
+    </div>
+    <div class="inputBox">
+        <input type="button" id="b2" value="Baidu API with real data">
+    </div>
+    <div class="inputBox">
+        <input type="button" id="b3" value="Main Navigation" onclick="addtext()">
+    </div>
+
+</section>
+
+</body>
+<script>
+    /*显示时间*/
+    window.onload = function(){
+        showTime();     //网页一加载就调用showTime()函数；
+    }
+    function checkTime(i){  //补位处理
+        if(i<10)
+        {
+            i="0"+i;     //当秒分小于10时，在左边补0；
+        }
+        return i;
+    }
+    function showTime(){
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1; //js获取的月份是从0开始；
+        var day=now.getDate();
+        var h=now.getHours();
+        var m=now.getMinutes();
+        var s=now.getSeconds();
+        m=checkTime(m);
+        s=checkTime(s);
+
+        var weekday=new Array(7)
+        weekday[0]="星期日";
+        weekday[1]="星期一";
+        weekday[2]="星期二";
+        weekday[3]="星期三";
+        weekday[4]="星期四";
+        weekday[5]="星期五";
+        weekday[6]="星期六";
+        var w=weekday[now.getDay()]; //js获取的星期是0~6,0是星期天；
+        document.getElementById("show").innerHTML=""+year+"年"+month+"月"+day+"日 "+w+"  "+h+":"+m+":"+s;
+        t=setTimeout('showTime()',500)
+    }
+
+    /*核心算法*/
+    /*边表*/
+
+    class Edge{
+        constructor(from = -1, to = -1, weight = 0) {
+            this.from = from;
+            this.to = to;
+            this.weight = weight;
+        }
+    }
+
+    /*图*/
+    const UNVISTED = 0;
+    const VISTED = 1;
+    const INFINITY = 9999;
+    class Graph{
+        constructor(numVertex) {
+            this.numVertex = numVertex;
+            this.numEdge = 0;
+            this.Indegree = new Array(numVertex);//存放图的顶点初值为0
+            this.Mark = new Array(numVertex);//标记图的顶点是否被访问过处值为未访问过
+            this.graList = new Array(numVertex);//存放图的边信息
+            for(var i = 0; i < numVertex; i++){
+                this.graList[i] = new Array(numVertex);
+                this.Mark[i] = UNVISTED;
+                this.Indegree[i] = 0;
+                for(var j = 0; j < numVertex; j++){
+                    this.graList[i][j] = INFINITY;
+                    if(i == j){
+                        this.graList[i][j] = 0;
+                    }
+                }
+            }
+        }
+        //获得当前图的顶点个数
+        VerticesNum(){
+            return this.numVertex;
+        }
+        //判断oneEdge是否为边
+        IsEdge(oneEdge){
+            if(oneEdge.weight > 0 && oneEdge.weight < INFINITY && oneEdge.to >= 0){return true;}
+            return false;
+        }
+        //返回依附于某一点的第一条边
+        FirstEdge(oneVertex){
+            var myEdge = new Edge();
+            for(var i = 0; i < this.VerticesNum(); i++){
+                if(this.graList[oneVertex][i] < INFINITY && this.graList[oneVertex][i] > 0){
+                    myEdge.from = oneVertex;
+                    myEdge.to = i;
+                    myEdge.weight = this.graList[oneVertex][i];
+                    return myEdge;
+                }
+            }
+            return myEdge;
+        }
+        //返回该条边顶点的下一条边
+        NextEdge(preEdge){
+            var myEdge = new Edge();
+            for(var i = preEdge.to + 1; i < this.VerticesNum(); i++){
+                if(this.graList[preEdge.from][i] < INFINITY && this.graList[preEdge.from][i] > 0){
+                    myEdge.from =preEdge.from;
+                    myEdge.to = i;
+                    myEdge.weight = this.graList[preEdge.from][i];
+                    return myEdge;
+                }
+            }
+            return myEdge
+        }
+        //为图设置一条边
+        setEdge(from, to, weight){
+            this.graList[from][to] = weight;
+            this.graList[to][from] = weight;
+        }
+    }
+
+    /*距离类*/
+    class Dist{
+        constructor(length = INFINITY, pre = -1) {
+            this.length = length
+            this.pre = pre
+        }
+    }
+
+    /*某一点是否在数组中*/
+    function iscunzai(v,vv){
+        for(var i = 0; i < v.length; i++){
+            if(Number(vv) == Number(v[i])){
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    /* 弗洛伊德算法 */
+    function Floyd (g, V){
+        var d = new Array(g.VerticesNum());
+        var i, j, v;
+        for(i = 0; i < g.VerticesNum(); i++){
+            d[i] = new Array(g.VerticesNum());
+        }
+        for(i = 0; i < g.VerticesNum(); i++){
+            for(j = 0; j < g.VerticesNum(); j++){
+                d[i][j] = new Dist();
+            }
+        }
+        //初始化数组D
+        for(i = 0; i < g.VerticesNum(); i++){
+            for(j = 0; j < g.VerticesNum(); j++){
+                if(i == j){
+                    d[i][j].length = 0;
+                    d[i][j].pre = i;
+                }
+                else{
+                    d[i][j].length = INFINITY;
+                    d[i][j].pre = -1;
+                }
+            }
+        }
+        for(v = 0; v < g.VerticesNum(); v++){
+            for(var e = g.FirstEdge(v); g.IsEdge(e); e = g.NextEdge(e)){
+                d[v][e.to].length = e.weight;
+                d[v][e.to].pre = v;
+            }
+        }
+        //更新路径长度
+        for(v = 0; v < g.VerticesNum(); v++){
+            for (i = 0; i < g.VerticesNum(); i++){
+                for (j = 0; j < g.VerticesNum(); j++){
+                    if(d[i][j].length > (d[i][v].length + d[v][j].length)){
+                        if(iscunzai(V,v) == 1){
+                            d[i][j].length = d[i][v].length + d[v][j].length;
+                            d[i][j].pre = v;
+                        }
+                    }
+                }
+            }
+        }
+        return d
+    }
+
+    /*根据路径计算距离*/
+    function long(g,stack){
+        var v = [];
+        var start = Number(stack[0]);
+        var to;
+        var length = 0;
+        for(var i = 1; i < stack.length; i++){
+            v.push(start);
+            to = Number(stack[i]);
+            length = length + Floyd(g,v)[start][to].length;
+            while(1){
+                var temp = Number(Floyd(g,v)[start][to].pre);
+                if(temp == start){break;}
+                if(temp == -1){length = 9999; break;}
+                v.push(temp);
+                to = temp;
+            }
+            to = Number(stack[i]);
+            start = to;
+        }
+        return length;
+    }
+
+    /*回溯算法*/
+    function ret(g, v, start, to){
+        var dd = [];
+        while(1){
+            var temp = Floyd(g, v)[start][to].pre
+            if(temp == start){break;}
+            dd.unshift(Number(temp));
+            v.push(temp);
+            to = temp;
+        }
+        return dd;
+    }
+    function R(stack, g){
+        var start = Number(stack[0]);
+        var to;
+        var lujin = [];
+        var v = [];
+        lujin.push(Number(start));
+        for(var i = 1; i < stack.length - 1; i++){
+            v.push(start);
+            to = Number(stack[i]);
+            if(Floyd(g,v)[start][to].pre != start){
+                var str = "("+ret(g, v,start,to)+")";
+                lujin.push(str);
+            }
+            lujin.push(Number(to));
+            start = to;
+        }
+        var temp_p =Floyd(g,v)[stack[stack.length - 2]][v0].pre
+        if(temp_p != stack[stack.length - 1]){
+            var str1 = "("+ret(g, v,v0,stack[stack.length - 2]).reverse()+")";
+            str1 = str1 +   "," + v0;
+            lujin.push(str1);
+        }
+
+        return lujin;
+    }
+
+
+    /*TSP旅行商问题求解*/
+    function TSP(g, array, stack, result, v0){
+        if(array.length == 0){
+            var stack1 =JSON.parse(JSON.stringify(stack));
+            stack1.push(stack1[0]);
+            var length = long(g, stack1);
+            if(length < result[0] && stack[0]== v0){
+                result[0] = length;
+                result[1] = JSON.parse(JSON.stringify(R(stack1,g).toString()));
+            }
+        }
+        else{
+            for(var i = 0; i < array.length; i++){
+                var temp = array.splice(i,1);
+                stack.push(Number(temp));
+                var tempArray = JSON.parse(JSON.stringify(array));//注意深浅拷贝的区别
+                array.splice(i,0,temp);
+                result = TSP(g, tempArray, stack, result, v0);
+                stack.pop();
+            }
+        }
+        return result;
+    }
+
+    var turnNum = function(nums){
+        return nums.map(Number);
+    }
+
+
+    /*主函数*/
+    //图结构存储
+    var G = new Graph(10);
+    G.setEdge(0,1,36);
+    G.setEdge(0,2,27);
+    G.setEdge(1,2,27);
+    G.setEdge(1,3,18);
+    G.setEdge(1,4,20);
+    G.setEdge(2,4,12);
+    G.setEdge(2,5,23);
+    G.setEdge(3,6,11);
+    G.setEdge(3,7,32);
+    G.setEdge(4,3,16);
+    G.setEdge(4,5,30);
+    G.setEdge(5,6,12);
+    G.setEdge(5,8,38);
+    G.setEdge(6,7,20);
+    G.setEdge(6,8,32);
+    G.setEdge(7,8,15);
+    G.setEdge(7,9,24);
+    G.setEdge(8,9,13);
+
+    /*个点位位置*/
+    var x =[30,200,200,350,275,350,425,500,500,650]
+    var y =[325,200,450,200,325,450,325,200,450,325]
+
+    /*在两个元素间画线*/
+    var one = document.getElementById("canvas");
+    var line1 = one.getContext("2d");
+    one.setAttribute('height', 750 + 'px');
+    one.setAttribute('width', 650 + 'px');
+    function draw_map(){
+        line1.strokeStyle = "black";
+        line1.lineWidth = 1;
+        for(var v = 0; v < G.numVertex; v++){
+            for(var e = G.FirstEdge(v); G.IsEdge(e); e = G.NextEdge(e)){
+                line1.beginPath();
+                line1.moveTo(x[e.from],y[e.from]);
+                line1.lineTo(x[e.to],y[e.to]);
+                line1.stroke();
+                line1.setLineDash([]);
+                line1.closePath();
+            }
+        }
+    }
+    draw_map();
+
+    //判断中途途径的点位点击次数
+    var n = [0,0,0,0,0,0,0,0,0,0];
+    var s = new Array();
+    //是否点击了起点
+    var flagg1 = 0;
+    var v0 = -1;
+    var do_str = "";
+
+    /*点击点后的反应*/
+    function click(i){
+        var no = i + 1;
+        var ID = "a" + no;
+        if(flagg1 == 1){
+            document.querySelector("img").remove();
+            var img = document.createElement("img");
+            img.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjY2NzA4NTgyMjc1IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIyNTYiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTI0Ni40IDY4Mi45VjE3My4zYy0xLjgtMTMgMS40LTMyLjggMTUuOC01MS4xIDMwLjYtMzguNSAxMDAuMS01OCAyMDYuNi01OCA2Ni4zIDAgMTExLjggNDEuNiAxNDguNCA3NSAyMS42IDE5LjcgNDIgMzguMyA2MC41IDQyLjkgNTUuNSAxMy42IDE0NC4zLTI3LjcgMTczLjgtNDQuOGw0Ni42LTI3LTYzLjUgNDY0LjItNy45IDYuNWMtMyAyLjUtNzQuNSA2MC45LTE1OC43IDQwLjctMzEuNS03LjYtNjAuNi0xOS43LTg4LjctMzEuNUM1NDIuMSA1NzQuNyA1MDcgNTYwIDQ3NC4xIDU2MGMtMTE1LjggMC0xODEuMiA3MS4xLTE4MS44IDcxLjhsLTQ1LjkgNTEuMXogbTIyNy43LTE3NS42YzQzLjQgMCA4NS4yIDE3LjQgMTI1LjUgMzQuMyAyNi4yIDExIDUzLjMgMjIuMyA4MC43IDI4LjkgNDUgMTAuOCA4Ny45LTEzLjEgMTA0LjktMjQuNGw0Ni42LTM0MC42Yy00NC4yIDE5LjEtMTEyLjEgNDEuMi0xNjYuOCAyNy43LTMxLjYtNy44LTU2LjgtMzAuOC04My41LTU1LjEtMzMtMzAuMS02Ny02MS4yLTExMi45LTYxLjItMTE3LjggMC0xNTMuNyAyNS4zLTE2My43IDM2LjItNS42IDYuMS02LjQgMTAuOS02LjQgMTIuOGwxLjQgMy43LTEgMS41VjU1OWMzNy40LTI0LjQgOTYuNy01MS43IDE3NS4yLTUxLjd6IG0zMzUuOCA1My41aDAuMS0wLjF6TTI5OC4zIDE2NS4xIiBmaWxsPSIjZDgxZTA2IiBwLWlkPSIyMjU3Ij48L3BhdGg+PHBhdGggZD0iTTI3Mi44IDg5NGMtMTQuNSAwLTI2LjMtMTEuOC0yNi4zLTI2LjNWMTc3LjJjMC0xNC41IDExLjgtMjYuMyAyNi4zLTI2LjNzMjYuMyAxMS44IDI2LjMgMjYuM3Y2OTAuNWMwLjEgMTQuNS0xMS43IDI2LjMtMjYuMyAyNi4zeiIgZmlsbD0iI2Q4MWUwNiIgcC1pZD0iMjI1OCI+PC9wYXRoPjxwYXRoIGQ9Ik0yNzguMyA5NTkuOGMtODUuNSAwLTE1Mi40LTQyLjktMTUyLjQtOTcuNnM2Ni45LTk3LjYgMTUyLjQtOTcuNiAxNTIuNCA0Mi45IDE1Mi40IDk3LjYtNjYuOSA5Ny42LTE1Mi40IDk3LjZ6IG0wLTE0Mi41Yy02MC45IDAtOTkuNyAyNi42LTk5LjcgNDQuOXMzOC44IDQ0LjkgOTkuNyA0NC45IDk5LjctMjYuNiA5OS43LTQ0LjktMzguOC00NC45LTk5LjctNDQuOXoiIGZpbGw9IiNkODFlMDYiIHAtaWQ9IjIyNTkiPjwvcGF0aD48L3N2Zz4=";
+            img.width = 35;
+            img.height = 35;
+            img.style.position = "absolute";
+            var map = document.querySelector("map");
+            map.appendChild(img);
+            img.style.top = y[i] - 20 + "px";
+            img.style.left = x[i] - 20 + "px";
+            img.style.fontSize = "99999";
+            flagg1 = 2;
+            v0 = i;
+            n[i]++;
+            var id = document.getElementById(ID);
+            id.style ="background-color:blueviolet";
+            if(iscunzai(s,v0) == 1){s.push(v0);}
+            do_str = do_str+"您已选择"+name1[i]+"作为您出行的起点\n";
+        }
+        else{
+            if(n[i] % 2 ==0){
+                var id = document.getElementById(ID);
+                if(v0 != i)
+                {
+                    id.style ="background-color:red";
+                    s.push(i);
+                }
+                n[i]++;
+                do_str = do_str+"您已选择"+name1[i]+"作为您出行的目的地址之一\n";
+            }
+            else{
+                var id = document.getElementById(ID);
+                if(getComputedStyle(id).backgroundColor ==  "rgb(138, 43, 226)"){
+                    flagg1 = 0;
+                    document.querySelector("img").remove();
+                    do_str = do_str+"您已取消"+name1[i]+"作为您出行的起点\n";
+                }
+                else{
+                    do_str = do_str+"您已取消"+name1[i]+"作为您出行的出行的目的地址之一\n";
+                }
+                id = document.getElementById(ID);
+                id.style ="background-color:green";
+                s = s.filter(function(item) { return item != i});//删除0节点
+                v0 = -1;
+                n[i]++;
+            }
+        }
+    }
+
+    /*获取中途途径的点位*/
+    function getid1(){click(0);}
+    function getid2(){click(1);}
+    function getid3(){click(2);}
+    function getid4(){click(3);}
+    function getid5(){click(4);}
+    function getid6(){click(5);}
+    function getid7(){click(6);}
+    function getid8(){click(7);}
+    function getid9(){click(8);}
+    function getid10(){click(9);}
+
+    /*初始化点*/
+    function start(){
+        for(var i = 0; i < n.length; i++){
+            n[i]=0;
+            var str = "a";
+            var no = Number(i)+1;
+            str = str + no;
+            var id = document.getElementById(str);
+            id.style ="background-color:green";
+        }
+
+    }
+
+    /*线段动画图*/
+    function handleExecute(startX,startY,endX,endY) {
+
+        // 设置线条样式
+        line1.strokeStyle = "green"
+        line1.lineWidth = 10
+        line1.lineCap = "round"
+
+        let prevX = startX
+        let prevY = startY
+        let nextX
+        let nextY
+        // 第一帧执行的时间
+        let startTime;
+        // 期望动画持续的时间
+        const duration = 1000
+
+        /*
+        * 动画帧绘制方法.
+        * currentTime是requestAnimation执行回调方法step时会传入的一个执行时的时间(由performance.now()获得).
+        * */
+        const step = (currentTime) => {
+            // 第一帧绘制时记录下开始的时间
+            !startTime && (startTime = currentTime)
+            // 已经过去的时间(ms)
+            const timeElapsed = currentTime - startTime
+            // 动画执行的进度 {0,1}
+            const progress = Math.min(timeElapsed / duration, 1)
+
+            // 绘制方法
+            const draw = () => {
+                // 创建新的路径
+                line1.beginPath()
+                // 创建子路径,并将起点移动到上一帧绘制到达的坐标点
+                line1.moveTo(prevX, prevY)
+                // 计算这一帧中线段应该到达的坐标点,并且将prevX/Y更新为此值给下一帧使用.
+                prevX = nextX = startX + (endX - startX) * progress
+                prevY = nextY = startY + (endY - startY) * progress
+                // 用直线将刚刚moveTo中的点连接到(nextX,nextY)上
+                line1.lineTo(nextX, nextY)
+                line1.strokeStyle = "green"
+                // 把这一帧的路径绘制出来
+                line1.stroke()
+            }
+            draw()
+
+            if (progress < 1) {
+                requestAnimationFrame(step)
+            } else {
+                console.log('动画执行完毕')
+            }
+        }
+
+        requestAnimationFrame(step)
+    }
+
+    /*绘制路径*/
+    var lu = [];
+    var distance = 9999;
+    function Result(){
+        var D = new Array();
+        var result = [INFINITY,-1];
+        result = TSP(G,s,D,result,v0);
+        alert(result[1]);
+        draw(result[1]);
+        distance = result[0];
+    }
+    function draw(array){
+        var begin = array[0];
+        var end = -1;
+        var flag = 0;
+        for(var i = 1; i < array.length; i++){
+            if(array[i] == "("){flag = 1;}
+            else if(array[i] == ")"){flag = 0;}
+            else if(array[i] == ","){}
+            else{
+                if(flag == 1){
+                    var str = "a";
+                    var no = Number(array[i])+1;
+                    str = str + no;
+                    var id = document.getElementById(str);
+                    id.style ="background-color:orange";
+                }
+                end = array[i];
+                lu.push(Number(begin));
+                handleExecute(x[begin],y[begin],x[end],y[end]);
+                begin = end;
+            }
+        }
+        lu.push(Number(end));
+        //handleExecute();
+    }
+
+    /*退出功能*/
+    function clean_map(){
+        start();
+        line1.clearRect(0,0,650,700);
+        line1.lineWidth = 1;
+        draw_map();
+        s = [];
+        flagg1 = 0;
+        document.querySelector("img").remove();
+        do_str = "";
+    }
+
+
+    /*小旗子*/
+    function add(){
+        if(flagg1 != 0){
+            document.querySelector("img").remove();
+            for(var i = 0; i < 10; i++){
+                var no = i+1;
+                var ID = "a"+no;
+                var id = document.getElementById(ID);
+                if(getComputedStyle(id).backgroundColor ==  "rgb(138, 43, 226)"){
+                    id.style = "background-color:green";
+                    s = s.filter(function(item) { return item != i});//删除节点
+                    v0 = -1;
+                    n[i]++;
+                }
+            }
+        }
+        var img = document.createElement("img");
+        img.src = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjY2NzA4NTgyMjc1IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIyNTYiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTI0Ni40IDY4Mi45VjE3My4zYy0xLjgtMTMgMS40LTMyLjggMTUuOC01MS4xIDMwLjYtMzguNSAxMDAuMS01OCAyMDYuNi01OCA2Ni4zIDAgMTExLjggNDEuNiAxNDguNCA3NSAyMS42IDE5LjcgNDIgMzguMyA2MC41IDQyLjkgNTUuNSAxMy42IDE0NC4zLTI3LjcgMTczLjgtNDQuOGw0Ni42LTI3LTYzLjUgNDY0LjItNy45IDYuNWMtMyAyLjUtNzQuNSA2MC45LTE1OC43IDQwLjctMzEuNS03LjYtNjAuNi0xOS43LTg4LjctMzEuNUM1NDIuMSA1NzQuNyA1MDcgNTYwIDQ3NC4xIDU2MGMtMTE1LjggMC0xODEuMiA3MS4xLTE4MS44IDcxLjhsLTQ1LjkgNTEuMXogbTIyNy43LTE3NS42YzQzLjQgMCA4NS4yIDE3LjQgMTI1LjUgMzQuMyAyNi4yIDExIDUzLjMgMjIuMyA4MC43IDI4LjkgNDUgMTAuOCA4Ny45LTEzLjEgMTA0LjktMjQuNGw0Ni42LTM0MC42Yy00NC4yIDE5LjEtMTEyLjEgNDEuMi0xNjYuOCAyNy43LTMxLjYtNy44LTU2LjgtMzAuOC04My41LTU1LjEtMzMtMzAuMS02Ny02MS4yLTExMi45LTYxLjItMTE3LjggMC0xNTMuNyAyNS4zLTE2My43IDM2LjItNS42IDYuMS02LjQgMTAuOS02LjQgMTIuOGwxLjQgMy43LTEgMS41VjU1OWMzNy40LTI0LjQgOTYuNy01MS43IDE3NS4yLTUxLjd6IG0zMzUuOCA1My41aDAuMS0wLjF6TTI5OC4zIDE2NS4xIiBmaWxsPSIjZDgxZTA2IiBwLWlkPSIyMjU3Ij48L3BhdGg+PHBhdGggZD0iTTI3Mi44IDg5NGMtMTQuNSAwLTI2LjMtMTEuOC0yNi4zLTI2LjNWMTc3LjJjMC0xNC41IDExLjgtMjYuMyAyNi4zLTI2LjNzMjYuMyAxMS44IDI2LjMgMjYuM3Y2OTAuNWMwLjEgMTQuNS0xMS43IDI2LjMtMjYuMyAyNi4zeiIgZmlsbD0iI2Q4MWUwNiIgcC1pZD0iMjI1OCI+PC9wYXRoPjxwYXRoIGQ9Ik0yNzguMyA5NTkuOGMtODUuNSAwLTE1Mi40LTQyLjktMTUyLjQtOTcuNnM2Ni45LTk3LjYgMTUyLjQtOTcuNiAxNTIuNCA0Mi45IDE1Mi40IDk3LjYtNjYuOSA5Ny42LTE1Mi40IDk3LjZ6IG0wLTE0Mi41Yy02MC45IDAtOTkuNyAyNi42LTk5LjcgNDQuOXMzOC44IDQ0LjkgOTkuNyA0NC45IDk5LjctMjYuNiA5OS43LTQ0LjktMzguOC00NC45LTk5LjctNDQuOXoiIGZpbGw9IiNkODFlMDYiIHAtaWQ9IjIyNTkiPjwvcGF0aD48L3N2Zz4=";
+        img.width = 35;
+        img.height = 35;
+        img.style.position = "absolute";
+        var map = document.querySelector("map");
+        map.appendChild(img);
+        flagg1 = 1;
+        //动画
+        var pic = document.querySelector('img');
+        pic.style.left = 1000+ 'px';
+        pic.style.top = 1000 + 'px';
+        document.addEventListener('mousemove', function followMouse(e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            pic.style.left = x - 50 + 'px';
+            pic.style.top = y - 50 + 'px';
+        })
+    }
+
+    /*文字导航*/
+    var text = 0;
+    var name1 = ["1号宿舍楼","2号宿舍楼","3号宿舍楼","4号宿舍楼","第一教学楼","第二教学楼","第三教学楼","天天餐厅","奥运餐厅","浴室"];
+    function addtext(){
+        if(text % 2 == 0){
+            document.querySelector("p").innerHTML = "文字导航";
+            var div = document.getElementById("b3");
+            div.style.color = "black";
+            div.style.width = "80px";
+            div.style.fontSize = "15px";
+            text ++;
+            var name_str = "";
+            for(var i = 0; i < s.length - 1; i++){
+                if(Number(s[i]) != v0){
+                    name_str = name_str + name1[Number(s[i])] + ",";
+                }
+            }
+            if(Number(s[i]) != v0){
+                name_str = name_str + name1[Number(s[s.length - 1])];
+            }
+            name_str1 = "";
+            for(var i = 0; i < lu.length - 1; i++){
+                name_str1 = name_str1 + name1[Number(lu[i])] + " -> ";
+            }
+            name_str1 = name_str1 + name1[Number(s[s.length - 1])];
+            document.getElementById("introduction").innerHTML = do_str + "你所选择的出发地为：\n"+name1[Number(v0)] + "\n"+"你所选择的多个目的地址：\n" + name_str + "\n"+"已为您规划路线：\n" + name_str1 + "\n"+"全程 "+ (Number(distance)/10).toFixed(3) + " 公里\n"
+            let img1 = document.createElement("img");
+            let img2 = document.createElement("img");
+            img1.src = "步行.svg";
+            img1.width = 30;
+            img1.height = 30;
+            img2.src = "19自行车.svg";
+            img2.width = 30;
+            img2.height = 30;
+        }
+        else{
+            document.querySelector("p").innerHTML = "导航";
+
+            document.getElementById("introduction").innerHTML = "1.单机地图上绿色的小圆点，使其变红即为选中的目的地\n2.误选目标地址，只需再次点中就可以红色图标再次变绿\n3.默认1号宿舍为选中的目的地为起点，如果需要改变起点则需要点击起点后将小旗插入对应的的点位即可变紫\n4.点击访问，则可以看到一条绿色加粗的路径为目标路径，其中目标点为红色，经过但不为目标的点为橙色\n5.点击退出，推出导航，页面恢复初始状态"
+            var div = document.getElementById("b3");
+            div.style.color = "cornflowerblue";
+            div.style.width = "35px";
+            text ++;
+        }
+
+    }
+</script>
+
+<table>
+    <tr>
+        <td colspan="2" style="background-color:#b2e5f4;text-align:center;">
+            CopyRight ©Teenie </td>
+    </tr>
+</table>
+</html>

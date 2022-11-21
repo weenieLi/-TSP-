@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Personal Information</title>
+    <style>
+        body{
+            background-color:#d0e4fe;
+        }
+
+        .left{
+            float:left;
+            width: 300px;
+            height: 300px;
+
+            margin-left: -500px;
+            margin-right: -100%;
+        }
+
+
+        .right{
+            float:left;
+            width:100%;
+
+        }
+
+        .right_region{
+            height: 300px;
+            margin-left: 100px;
+        }
+
+        h1{
+            color:#9a2efe;
+            text-align:center;
+            font-size: 30px;
+            text-shadow: 5px 5px 5px #f6fb79;
+
+
+        }
+
+        #nav {
+            margin: -1px auto;
+            height: 40px;
+            background-color: #9b79fb;
+        }
+        #nav ul {
+            list-style: none;
+            margin-left: 50px;
+        }
+        #nav li {
+            display: inline;
+        }
+        #nav a {
+            line-height: 40px;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px 20px;
+        }
+        #nav a:hover {
+            background-color: #f8fab3;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1> This Page is trying to make us know more about your Reference</h1>
+<br>
+<ul id="nav">
+    <li><a href="#home">Introduction</a></li>
+    <li><a href="#news">Pictures</a></li>
+    <li><a href="#contact">Map</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+
+<div class="right">
+    <div class="right_region">
+        <br>
+        <a href="Present.html" title="进入初始界面" target="top">back to the origin page(Click here)</a>
+
+        <br>
+<br>
+Play a music here:
+<audio controls>
+    <source src="Lemon.mp3" type="audio/mpeg">
+    您的浏览器不支持 audio 元素。
+</audio>
+
+
+<br><br>
+<form action="">
+  Username: <input type="text" name="user"><br>
+  Password: <input type="password" name="password">
+    <input type="submit" value="Submit">
+</form>
+
+<br>
+
+Choose favorite color: <input type="color" name="favcolor">
+
+<br>
+<br>
+Your Birthday: <input type="date" name="bday">
+
+<br>
+<br>
+
+Telephone Number here: <input type="tel" name="usrtel">
+<br>
+<br>
+Your Sex:
+<form action="">
+    <input type="radio" name="sex" value="male">男<br>
+    <input type="radio" name="sex" value="female">女
+</form>
+
+<br>
+
+Your geography:
+<p id="demo">Press the button to show your place (It might take a long time)</p>
+<button onclick="getLocation()">点我</button>
+<script>
+    var x=document.getElementById("demo");
+    function getLocation()
+    {
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else
+        {
+            x.innerHTML="该浏览器不支持获取地理位置。";
+        }
+    }
+
+    function showPosition(position)
+    {
+        x.innerHTML="纬度: " + position.coords.latitude +
+            "<br>经度: " + position.coords.longitude;
+    }
+</script>
+
+    <img src="sponge.gif" alt="Sponge babe">
+
+        <br>
+
+    <table>
+        <tr>
+            <td colspan="2" style="background-color:#b2e5f4;text-align:center;">
+                CopyRight ©Teenie </td>
+        </tr>
+    </table>
+    </div>
+</div>
+
+<div class="left">
+
+
+<br>
+The Reason Why you're here using platform:
+<form>
+    <input type="checkbox" name="vehicle" value="origin_1">The Red Book<br>
+    <input type="checkbox" name="vehicle" value="origin_2">Twitter<br>
+    <input type="checkbox" name="vehicle" value="origin_3">Official Account(Wechat)<br>
+    <input type="checkbox" name="vehicle" value="origin_4">Instagram<br>
+    <input type="checkbox" name="vehicle" value="origin_5">Weibo<br>
+    <input type="checkbox" name="vehicle" value="origin_6">Others<br>
+</form>
+<br>
+
+Choose the explorer you commonly used(Including IE, Firefox, Chrome, Opera, Safari, etc.):
+<br>
+<input list="browsers">
+<datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+    <option value="Others">
+</datalist>
+
+
+<br>
+<br>
+<a href="https://www.bilibili.com/video/BV1gK4y1t7q1/?spm_id_from
+=333.337.search-card.all.click&vd_source=0d91a9c97d091eb603f4f5a56c3d8481">Know more about HTML,<br>
+
+Build your own website here!</a>
+
+<br>
+<br>
+<nav>
+    <a href="https://www.runoob.com/html/html-tutorial.html">HTML</a> |
+    <a href="https://www.runoob.com/css/css-tutorial.html">CSS</a> |
+    <a href="https://www.runoob.com/js/js-tutorial.html">JavaScript</a> |
+    <a href="https://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a>
+</nav>
+
+
+<video width="320" autoplay="autoplay" height="240" controls>
+  <source src="dancing_boy.mp4" type="video/mp4">
+</video>
+
+</div>
+
+
+
+
+</body>
+</html>
